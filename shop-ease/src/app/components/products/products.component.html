@@ -1,0 +1,20 @@
+<div class="product-container">
+    <div>
+
+    </div>
+    <div class="grid-container">
+        <ng-container *ngFor="let product of productList">
+            <div class="grid-item">
+                <div class="mr-10 prod-img">
+                    <img src='{{ "../../../../../assets/images/" + product.imgPathArray[0]}}' alt="Product Image">
+                </div>
+                <div class="prod-detail mt-5">
+                    <div>{{product?.name}}</div>
+                    <div>{{product?.price | currency:'INR':'symbol-narrow':'4.2-2'}}</div>
+                    <div> {{product?.offer | percent}}</div>
+                </div>
+               
+            </div>
+        </ng-container>
+    </div>
+</div>
