@@ -5,5 +5,11 @@ export interface IProducts {
     name: string,
     price: number,
     offer: number,
-    prodDesc: string
+    prodDesc: string,
+    categoryID: number
+}
+// interface for category model
+export interface ICategories{
+    categoryID: number,
+    categoryName: string
 }

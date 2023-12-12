@@ -1,19 +1,36 @@
 <div class="product-container">
-    <div>
-
+    <div class="search-criteria">
+        <!-- Search Criterias -->
+        <div class="dropdown">
+            <button class="dropbtn">{{productConstant.CATEGORY}}</button>
+            <div class="dropdown-content">
+                <ng-container *ngFor="let category of categories">
+                    <a (click)="onCategroyClick(category)">{{category?.categoryName}}</a>
+                </ng-container>
+            </div>
+        </div>
+        <form class="">
+            <input type="search" id="searchFilter" name="" placeholder="Search Any Product" autocomplete="off"
+            (keyup)="onSearchInput($event)"/>
+            <button type="submit">Search</button>
+        </form>
     </div>
     <div class="grid-container">
-        <ng-container *ngFor="let product of productList">
+        <!-- Product lists -->
+        <ng-container *ngFor="let product of filteredProductList">
             <div class="grid-item">
                 <div class="mr-10 prod-img">
                     <img src='{{ "../../../../../assets/images/" + product.imgPathArray[0]}}' alt="Product Image">
+                    <div class="pl-1 prod-desc">{{product?.prodDesc}}</div>
                 </div>
                 <div class="prod-detail mt-5">
                     <div>{{product?.name}}</div>
                     <div>{{product?.price | currency:'INR':'symbol-narrow':'4.2-2'}}</div>
                     <div> {{product?.offer | percent}}</div>
                 </div>
-               
+                <div>
+                    <button (click)="onAddToCart(product)">{{productConstant.ADD_TO_CART}}</button>
+                </div>
             </div>
         </ng-container>
     </div>
