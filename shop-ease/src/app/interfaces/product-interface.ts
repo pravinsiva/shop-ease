@@ -6,7 +6,8 @@ export interface IProducts {
     price: number,
     offer: number,
     prodDesc: string,
-    categoryID: number
+    categoryID: number,
+    displayedImage: string
 }
 // interface for category model
 export interface ICategories{

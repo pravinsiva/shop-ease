@@ -1,11 +1,12 @@
 .header {
-    background-color: #d53a56;
+    background-color: #181b29;
     position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%
 }
 img{
     max-width: 5rem;
@@ -16,5 +17,5 @@ nav{
 .header nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #333;
+    color: #eeee;
 }

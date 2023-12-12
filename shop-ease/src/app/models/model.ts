@@ -11,7 +11,8 @@ export const produts: Array<IProducts> = [
         price: 2999,
         offer: 0.10,
         prodDesc: `Men's Shirts Cotton Military Shirt Khaki Casual Slim Fit with Pocket Long Sleeve Vintage Jacket Streetwear Drop`,
-        categoryID: 2
+        categoryID: 2,
+        displayedImage: ''
     },
     {
         id: 1001,
@@ -20,7 +21,8 @@ export const produts: Array<IProducts> = [
         price: 144999,
         offer: 0.20,
         prodDesc: 'Apple iPhone 14 Pro Max (1 TB) - Space Black',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1002,
@@ -29,7 +31,8 @@ export const produts: Array<IProducts> = [
         price: 129700,
         offer: 0.10,
         prodDesc: 'Dell Latitude 5420 Intel i5 1135G7 14 inches FHD Business Laptop (8GB, 512GB NVMe, Windows 10 Pro, 3 Year ADP, 1.37Kg)',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1003,
@@ -38,7 +41,8 @@ export const produts: Array<IProducts> = [
         price: 22999,
         offer: 0.10,
         prodDesc: 'AirPods Pro, MagSafe Charging Case with speaker and lanyard loop, Silicone ear tips (four sizes: XS, S, M, L), Lightning to USB-C Cable, Documentation',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1004,
@@ -47,7 +51,8 @@ export const produts: Array<IProducts> = [
         price: 37999,
         offer: 0.18,
         prodDesc: 'OnePlus 163.8 cm (65 inches) U Series 4K LED Smart Android TV 65U1S (Black)',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1005,
@@ -56,7 +61,8 @@ export const produts: Array<IProducts> = [
         price: 121999,
         offer: 0.14,
         prodDesc: 'Samsung Galaxy S22 5G (Phantom Black, 8GB, 128GB Storage) with No Cost EMI/Additional Exchange Offers',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1006,
@@ -65,7 +71,8 @@ export const produts: Array<IProducts> = [
         price: 37999,
         offer: 0.12,
         prodDesc: 'Samsung Galaxy Watch6 Classic LTE (47mm, Silver, Compatible with Android only)',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1007,
@@ -74,7 +81,8 @@ export const produts: Array<IProducts> = [
         price: 999,
         offer: 0.5,
         prodDesc: 'MI Xiaomi Beard Trimmer for Men 2C With High Precision Trimming | 2 Beard Comb | USB Type-C | Fast Charging | 0.5mm Precision | 40 Length Settings | 90 Min Run Time, Black',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
     {
         id: 1008,
@@ -83,7 +91,8 @@ export const produts: Array<IProducts> = [
         price: 5999,
         offer: 0.20,
         prodDesc: 'Expansion 2TB External HDD - USB 3.0 for Windows and Mac with 3 yr Data Recovery Services, Portable Hard Drive (STKM2000400)',
-        categoryID: 1
+        categoryID: 1,
+        displayedImage: ''
     },
 ];
 

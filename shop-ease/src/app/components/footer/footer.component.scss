@@ -1,0 +1,16 @@
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #181b29;
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    .link-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0.5rem;
+    }
+}
