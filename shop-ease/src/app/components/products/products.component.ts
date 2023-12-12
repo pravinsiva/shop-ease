@@ -3,7 +3,7 @@ import { SharedService } from '../../services/shared.service';
 import { ICategories, IProducts } from '../../interfaces/product-interface';
 import { CommonModule } from '@angular/common';
 import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
-import { shopEaseConstants } from '../../constants/product-constants';
+import { shopEaseConstants } from '../../constants/se-constants';
 import { category } from '../../models/model';
 import { FormsModule } from '@angular/forms';
 

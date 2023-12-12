@@ -17,7 +17,7 @@ export const produts: Array<IProducts> = [
     {
         id: 1001,
         imgPathArray: ['iphone-1.webp', 'iphone-2.webp'],
-        name: 'iPhone 14 Pro Max',
+        name: 'Apple iPhone 14 Pro Max',
         price: 144999,
         offer: 0.20,
         prodDesc: 'Apple iPhone 14 Pro Max (1 TB) - Space Black',
