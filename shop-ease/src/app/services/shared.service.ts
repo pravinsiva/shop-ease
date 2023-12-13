@@ -8,7 +8,7 @@ import { produts } from '../models/model';
 export class SharedService {
 
   constructor() { }
-
+// To return product list mock data as an observable stream of output for asynchronous execution
   getStaticData() {
     return of(produts);
   }

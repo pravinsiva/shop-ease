@@ -10,11 +10,11 @@
                     </ng-container>
                 </div>
             </div>
-            <label class="p-1">
+            <label class="p-1 color-black">
                 <b>{{productConstant.CATEGORIZED_BY}}</b> {{this.selectedCategory?.categoryName}}
             </label>
         </div>
-        <form class="">
+        <form class="color-black">
             <input type="search" id="searchFilter" #searchFilter name="searchText" placeholder="Search Any Product"
                 autocomplete="off" [(ngModel)]="searchText" (input)="onSearchInput(searchFilter.value)" />
             <button type="submit">Search</button>
@@ -24,19 +24,20 @@
         <!-- Product lists -->
         <ng-container *ngFor="let product of filteredProductList">
             <div class="grid-item">
-                <div class="mr-10 prod-img">
-                    <img id="prodImg-{{product.id}}" (mouseenter)="onImgFocusIn(product)"
-                        (mouseleave)="onImgFocusOut(product)"
+                <div class="mr-10 prod-img" (mouseenter)="onImgFocusIn(product)"
+                (mouseleave)="onImgFocusOut(product)">
+                    <img id="prodImg-{{product.id}}" 
                         src='{{ "../../../../../assets/images/" + product.displayedImage}}' alt="Product Image">
                     <div class="pl-1 prod-desc">{{product?.prodDesc}}</div>
                 </div>
                 <div class="prod-content">
                     <div class="prod-detail">
-                        <div><b>{{product?.name}}</b></div>
-                        <div class="prod-offer"> <b>{{product?.offer | percent}} Off</b></div>
+                        <div><b class="prod-name">{{product?.name}}</b></div>
+                        <div id="prodOffer-{{product.id}}" class="prod-offer"> <b>{{product?.offer | percent}} Off</b></div>
                         <div>
                             <span class="prod-price">{{product?.price | currency:'INR':'symbol-narrow':'4.2-2'}} </span>
                             &nbsp;
+                            <!-- Offer Price calculation -->
                             <span class="prod-offprice">{{(product.price - (product.price * product.offer))
                                 | currency:'INR':'symbol-narrow':'4.2-2'}} </span>
                         </div>
@@ -51,6 +52,7 @@
         </ng-container>
     </div>
 </div>
+<!-- In case of empty data -->
 <ng-template #noDataTemplate>
     <p class="no-data">{{productConstant.NO_DATA_MSG}}</p>
 </ng-template>

@@ -2,6 +2,7 @@
 // mock data file
 import { ICategories, IProducts } from "../interfaces/product-interface";
 
+// Product list mock data
 export const produts: Array<IProducts> = [
     
     {
@@ -96,6 +97,7 @@ export const produts: Array<IProducts> = [
     },
 ];
 
+// Category types list
 export const category: Array<ICategories> = [
     {
         categoryID: 0,

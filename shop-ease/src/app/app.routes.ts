@@ -1,7 +1,9 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
+    // Default routing component
     {
         path: '', component: LandingPageComponent
     },
@@ -12,3 +14,8 @@ export const routes: Routes = [
     },
     { path: "**", redirectTo: '' }
 ];
+@NgModule({
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule{}

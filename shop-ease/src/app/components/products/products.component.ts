@@ -24,16 +24,16 @@ export class ProductsComponent implements OnInit, OnDestroy {
   selectedCategory: any = this.categories[0];
   @ViewChild("searchFilter", { static: true }) searchFilter: any;
   private inputEvent = new Subject<any>();
-  animateImage: boolean = false;
   constructor(
     private sharedService: SharedService,
     private cdr: ChangeDetectorRef,
   ) {
+    // Observable function call for search text input
     this.filterBySearchText();
   }
 
+  // Observable function: optimized search using debounceTime & distinctUntilChanged
   private filterBySearchText() {
-    // optimized search using debounceTime & distinctUntilChanged
     this.inputEvent
       .pipe(
         debounceTime(300),
@@ -52,6 +52,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getProduct();
   }
+
+  // To get product as async data
   private getProduct() {
     this.subscriptionArray.push(this.sharedService.getStaticData().subscribe((data: IProducts[]) => {
       data.map((item: IProducts) => {
@@ -62,27 +64,35 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }));
   }
 
+  // TODO
   onAddToCart(product: IProducts) {
 
   }
+
+  // To set animation css on hovering product
   onImgFocusIn(product: IProducts) {
     const imageElement = document?.getElementById("prodImg-" + product?.id);
-    setTimeout(()=>{
-      imageElement?.classList?.add('animate-img')
+    const prodOffer = document?.getElementById("prodOffer-" + product?.id);
+    setTimeout(() => {
+      imageElement?.classList?.add('animate-img');
+      prodOffer?.classList?.add('glow');
     })
-    this.animateImage = true;
     product.displayedImage = product?.imgPathArray[1];
-    
+
   }
 
+  // To remove animation css on hovering product
   onImgFocusOut(product: IProducts) {
     const imageElement = document?.getElementById("prodImg-" + product?.id);
-    setTimeout(()=>{
+    const prodOffer = document?.getElementById("prodOffer-" + product?.id);
+    setTimeout(() => {
       imageElement?.classList?.remove('animate-img')
+      prodOffer?.classList?.remove('glow');
     })
     product.displayedImage = product?.imgPathArray[0];
-    this.animateImage = false
   }
+
+  // To Filter out data based on selected category
   onCategroyClick(category: ICategories) {
     this.searchText = '';
     this.selectedCategory = this.categories?.find((item: ICategories) => {
@@ -93,14 +103,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
     })
   }
 
+  // Condition check for returning result on category
   private returnItemsOnCategoryChange(prod: IProducts, category: ICategories): unknown {
     return prod?.categoryID === category?.categoryID || category?.categoryID === this.productConstant.SHOW_ALL;
   }
 
+  // To fire async event, setting out observer
   onSearchInput(val: any) {
     this.inputEvent.next(val);
   }
 
+  // Destroyed all subscriptions, to avoid memory leaks
   ngOnDestroy(): void {
     if (this.subscriptionArray?.length > 0) {
       this.subscriptionArray?.forEach((subscription: Subscription) => {

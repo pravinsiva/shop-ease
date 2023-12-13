@@ -1,0 +1,52 @@
+//scss variable and mixin
+$unit: 1rem;
+.color-black{
+    color: black;
+}
+.ml-10 {
+    margin-left: $unit * 10;
+}
+
+.mr-10 {
+    margin-right: $unit * 10;
+}
+
+.mt-5 {
+    margin-top: $unit * 5;
+}
+
+.pl-1 {
+    padding-left: $unit;
+}
+
+.p-1 {
+    padding: $unit;
+}
+
+.text-ul {
+    text-decoration: underline;
+}
+
+@mixin glowText() {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes spinHorizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #e60073, 0 0 35px #e60073, 0 0 45px #e60073, 0 0 55px #e60073, 0 0 65px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6;
+    }
+}

@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Project Architecture and Execution
+
+In this project, the components were handled as "Standalone". Product component has been lazy-loaded.
+Responsive layouts have been implmented.
+Getting mock data is handled asynchronously.
+Product filter can be acheived by cateogorizing and also able to search out on the categorized products.
+variables and mixins have been used.
+To run use `npm run start` or `ng serve`
+Required npm version 10.*.* ^
+Required node version 20.10.* ^
+Angular SSR has been enabled.
+The main advantages of SSR as compared to client-side rendering (CSR) are:
+
+Improved performance: SSR can improve the performance of web applications by delivering fully rendered HTML to the client, which can be parsed and displayed even before the application JavaScript is downloaded. This can be especially beneficial for users on low-bandwidth connections or mobile devices.
+Improved Core Web Vitals: SSR results in performance improvements that can be measured using Core Web Vitals (CWV) statistics, such as reduced First Contentful Paint (FCP) and Largest Contentful Paint (LCP), as well as Cumulative Layout Shift (CLS).
+Better SEO: SSR can improve the search engine optimization (SEO) of web applications by making it easier for search engines to crawl and index the content of the application.

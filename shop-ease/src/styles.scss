@@ -1,22 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-html{font-family: Arial, Helvetica, sans-serif;}
-.ml-10{
-    margin-left: 10rem;
+html {
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-.mr-10{
-    margin-right: 10rem;
-}
-.mt-5{
-    margin-top: 5rem;
-}
-.pl-1{
-    padding-left: 1rem;
-}
-.p-1{
-    padding: 1rem;
-}
-
-.text-ul{
-    text-decoration: underline;
+body{
+    background-image: linear-gradient(to bottom, rgb(189 166 166 / 51%), rgb(148 149 161 / 59%));
+    color: #fff
 }

@@ -1,11 +1,14 @@
 <header class="header">
-  <img src="../../assets/logos/seLogo.JPG" alt="Shop Ease">
+  <!-- app LOGO -->
+  <img src="../../assets/logos/seLogo.JPG" [routerLink]="'/'" alt="Shop Ease">
+  <!-- Navigation menu -->
   <nav id="navItems">
-    <a [routerLink]="'/'">Home</a>
-    <a [routerLink]="'/products'">Products</a>
-    <a [routerLink]="'/'">About Us</a>
-    <a [routerLink]="'/'">Contact</a>
+    <a [routerLink]="'/'">{{headerConstant.HOME}}</a>
+    <a [routerLink]="'/products'">{{headerConstant.PRODUCTS}}</a>
+    <a [routerLink]="'/'">{{headerConstant.ABOUT_US}}</a>
+    <a [routerLink]="'/'">{{headerConstant.CONTACT}}</a>
   </nav>
+  <!-- For Mobile Screen -->
   <div id="hamIcon" (click)="openMenu()">
     <div class="bar1"></div>
     <div class="bar2"></div>
