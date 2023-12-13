@@ -41,7 +41,7 @@ export const produts: Array<IProducts> = [
         name: 'AirPods Pro (2nd Gen)',
         price: 22999,
         offer: 0.10,
-        prodDesc: 'AirPods Pro, MagSafe Charging Case with speaker and lanyard loop, Silicone ear tips (four sizes: XS, S, M, L), Lightning to USB-C Cable, Documentation',
+        prodDesc: 'AirPods Pro, MagSafe Charging Case with speaker and lanyard loop, Silicone ear tips (four sizes: XS, S, M, L).',
         categoryID: 1,
         displayedImage: ''
     },
