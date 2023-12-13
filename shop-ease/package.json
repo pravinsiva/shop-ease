@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
+    "build:": "npm install && ng build --prod --aot --configuration production --stats-json --base-href=./",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:shop-ease": "node dist/shop-ease/server/server.mjs"
