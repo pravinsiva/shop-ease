@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-var c=(()=>{let i=class i{};i.ADD_TO_CART="ADD TO CART",i.CATEGORY="Shop By Category",i.SHOW_ALL=0,i.CATEGORIZED_BY="Categorized By:",i.NO_DATA_MSG="No Items Found!",i.COPY_RIGHT_INFO="2023 Shop Ease. All Rights Reserved.",i.PRIVACY_POLICY="Privacy Policy",i.TERMS_OF_SERVICE="Terms of Service",i.FAQ="FAQ",i.HOME="Home",i.PRODUCTS="Products",i.ABOUT_US="About Us",i.CONTACT="Contact";let t=i;return t})();export{c as a};
