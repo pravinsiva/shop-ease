@@ -1,12 +1,17 @@
 <header class="header">
   <!-- app LOGO -->
-  <img src="../../assets/logos/seLogo.JPG" [routerLink]="'/'" alt="Shop Ease">
+  <img src="../../assets/logos/seLogo.JPG" [routerLink]="'/home'" (click)="currentNav = headerConstant.HOME;"
+    alt="Shop Ease">
   <!-- Navigation menu -->
   <nav id="navItems">
-    <a [routerLink]="'/'">{{headerConstant.HOME}}</a>
-    <a [routerLink]="'/products'">{{headerConstant.PRODUCTS}}</a>
-    <a [routerLink]="'/'">{{headerConstant.ABOUT_US}}</a>
-    <a [routerLink]="'/'">{{headerConstant.CONTACT}}</a>
+    <a [routerLink]="'/home'" [ngClass]="{'navigated': currentNav === headerConstant.HOME}"
+      (click)="currentNav = headerConstant.HOME;">{{headerConstant.HOME}}</a>
+    <a [routerLink]="'/products'" [ngClass]="{'navigated': currentNav === headerConstant.PRODUCTS}"
+      (click)="currentNav = headerConstant.PRODUCTS;">{{headerConstant.PRODUCTS}}</a>
+    <a [routerLink]="'/'" [ngClass]="{'navigated': currentNav === headerConstant.ABOUT_US}"
+      (click)="currentNav = headerConstant.ABOUT_US;">{{headerConstant.ABOUT_US}}</a>
+    <a [routerLink]="'/'" [ngClass]="{'navigated': currentNav === headerConstant.CONTACT}"
+      (click)="currentNav = headerConstant.CONTACT;">{{headerConstant.CONTACT}}</a>
   </nav>
   <!-- For Mobile Screen -->
   <div id="hamIcon" (click)="openMenu()">

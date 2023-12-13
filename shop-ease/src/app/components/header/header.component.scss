@@ -60,6 +60,6 @@ nav {
     color: #eeee;
 }
 
-nav a:hover {
-    background-color: #816762d0;
+nav a:hover, .navigated {
+    color: #816762d0 !important;
 }

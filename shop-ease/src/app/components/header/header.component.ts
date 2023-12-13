@@ -11,7 +11,8 @@ import { shopEaseConstants } from '../../constants/se-constants';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  headerConstant = shopEaseConstants
+  headerConstant = shopEaseConstants;
+  currentNav: any = 'Home';
   constructor() {
     // Register a callback to be invoked the next time the application finishes rendering.
     afterNextRender(() => {
