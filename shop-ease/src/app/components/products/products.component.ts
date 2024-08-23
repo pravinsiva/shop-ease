@@ -6,6 +6,8 @@ import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs'
 import { shopEaseConstants } from '../../constants/se-constants';
 import { category } from '../../models/model';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as AddItemActions from '../../store/action'
 
 @Component({
   selector: 'app-products',
@@ -27,6 +29,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private sharedService: SharedService,
     private cdr: ChangeDetectorRef,
+    private store: Store<any>
   ) {
     // Observable function call for search text input
     this.filterBySearchText();
@@ -66,6 +69,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   // TODO
   onAddToCart(product: IProducts) {
+    this.store.dispatch(new AddItemActions.AddItem(1));
 
   }
 

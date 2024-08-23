@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, afterNextRender } from '@angular/core';
 import { AppRoutingModule } from '../../app.routes';
 import { shopEaseConstants } from '../../constants/se-constants';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +15,10 @@ import { shopEaseConstants } from '../../constants/se-constants';
 export class HeaderComponent {
   headerConstant = shopEaseConstants;
   currentNav: any = 'Home';
-  constructor() {
+  cartCount$: Observable<any> = new Observable();
+  constructor(
+    private store: Store<any>
+  ) {
     // Register a callback to be invoked the next time the application finishes rendering.
     afterNextRender(() => {
       this.onResize();
@@ -22,7 +27,7 @@ export class HeaderComponent {
         this.onResize();
       };
     })
-
+    this.cartCount$ = this.store.select(('prodCount'));
   }
 
   // Switch between responsive layouts on resize
