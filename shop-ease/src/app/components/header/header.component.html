@@ -13,6 +13,11 @@
     <a [routerLink]="'/'" [ngClass]="{'navigated': currentNav === headerConstant.CONTACT}"
       (click)="currentNav = headerConstant.CONTACT;">{{headerConstant.CONTACT}}</a>
   </nav>
+
+  <div *ngIf="cartCount$ | async as c">
+<p>Cart Count {{c.count}}</p>
+  </div>
+
   <!-- For Mobile Screen -->
   <div id="hamIcon" (click)="openMenu()">
     <div class="bar1"></div>
