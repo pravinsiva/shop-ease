@@ -1,60 +1,62 @@
 <div class="product-container">
-    <div class="search-criteria">
-        <!-- Search Criterias -->
-        <div class="category-section">
-            <div class="dropdown">
-                <button class="dropbtn">{{productConstant.CATEGORY}}</button>
-                <div class="dropdown-content">
-                    <ng-container *ngFor="let category of categories">
-                        <a (click)="onCategroyClick(category)">{{category?.categoryName}}</a>
-                    </ng-container>
-                </div>
-            </div>
-            <label class="p-1 color-black">
-                <b>{{productConstant.CATEGORIZED_BY}}</b> {{this.selectedCategory?.categoryName}}
-            </label>
+  <app-filtersorting
+    [selectedCategory]="this.selectedCategory"
+    (onFilterSelect)="onCategroyClick($event)"
+    (onFilterInput)="onSearchInput($event)"
+    (onSortingByPrice)="onSortingByPrice($event)"
+  ></app-filtersorting>
+  <div class="grid-container">
+    @if(filteredProductList && filteredProductList.length > 0){
+    <!-- Product lists -->
+    <ng-container *ngFor="let product of filteredProductList">
+      <div class="grid-item">
+        <div
+          class="mr-10 prod-img"
+          (mouseenter)="onImgFocusIn(product)"
+          (mouseleave)="onImgFocusOut(product)"
+        >
+          <img
+            id="prodImg-{{ product.id }}"
+            src="{{ '../../../../../assets/images/' + product.displayedImage }}"
+            alt="Product Image"
+          />
+          <div class="pl-1 prod-desc">{{ product?.prodDesc }}</div>
         </div>
-        <form class="color-black">
-            <input type="search" id="searchFilter" #searchFilter name="searchText" placeholder="Search Any Product"
-                autocomplete="off" [(ngModel)]="searchText" (input)="onSearchInput(searchFilter.value)" />
-            <button type="submit">Search</button>
-        </form>
-    </div>
-    <div class="grid-container">
-        @if(filteredProductList && filteredProductList.length > 0){
-        <!-- Product lists -->
-        <ng-container *ngFor="let product of filteredProductList">
-            <div class="grid-item">
-                <div class="mr-10 prod-img" (mouseenter)="onImgFocusIn(product)" (mouseleave)="onImgFocusOut(product)">
-                    <img id="prodImg-{{product.id}}" src='{{ "../../../../../assets/images/" + product.displayedImage}}'
-                        alt="Product Image">
-                    <div class="pl-1 prod-desc">{{product?.prodDesc}}</div>
-                </div>
-                <div class="prod-content">
-                    <div class="prod-detail">
-                        <div><b class="prod-name">{{product?.name}}</b></div>
-                        <div id="prodOffer-{{product.id}}" class="prod-offer"> <b>{{product?.offer | percent}} Off</b>
-                        </div>
-                        <div>
-                            <span class="prod-price">{{product?.price | currency:'INR':'symbol-narrow':'4.2-2'}} </span>
-                            &nbsp;
-                            <!-- Offer Price calculation -->
-                            <span class="prod-offprice">{{(product.price - (product.price * product.offer))
-                                | currency:'INR':'symbol-narrow':'4.2-2'}} </span>
-                        </div>
-
-                    </div>
-                    <div class="btn-cls">
-                        <button class="add-btn" (click)="onAddToCart(product)">{{productConstant.ADD_TO_CART}}</button>
-                    </div>
-                </div>
-
+        <div class="prod-content">
+          <div class="prod-detail">
+            <div>
+              <b class="prod-name">{{ product?.name }}</b>
             </div>
-        </ng-container>
-        } @else {
-        <!-- In case of empty data -->
-        <p class="no-data color-black">{{productConstant.NO_DATA_MSG}}</p>
-        }
-
-    </div>
+            <div id="prodOffer-{{ product.id }}" class="prod-offer">
+              <b>{{ product?.offer | percent }} Off</b>
+            </div>
+            <div>
+              <span class="prod-price"
+                >{{
+                  product?.price | currency : "INR" : "symbol-narrow" : "4.2-2"
+                }}
+              </span>
+              &nbsp;
+              <!-- Offer Price calculation -->
+              <span class="prod-offprice"
+                >{{
+                  product.price - product.price * product.offer
+                    | currency : "INR" : "symbol-narrow" : "3.2-2"
+                }}
+              </span>
+            </div>
+          </div>
+          <div class="btn-cls">
+            <button class="add-btn" (click)="onAddToCart(product)">
+              {{ productConstant.ADD_TO_CART }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    } @else {
+    <!-- In case of empty data -->
+    <p class="no-data color-black">{{ productConstant.NO_DATA_MSG }}</p>
+    }
+  </div>
 </div>

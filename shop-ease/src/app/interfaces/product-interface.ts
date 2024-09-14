@@ -14,3 +14,8 @@ export interface ICategories{
     categoryID: number,
     categoryName: string
 }
+// interface for sorting model
+export interface ISorting{
+    val: string,
+    key: string
+}

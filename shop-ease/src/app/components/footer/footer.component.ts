@@ -6,10 +6,9 @@ import { shopEaseConstants } from '../../constants/se-constants';
   standalone: true,
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   footerConstant = shopEaseConstants;
   constructor() {}
-
 }

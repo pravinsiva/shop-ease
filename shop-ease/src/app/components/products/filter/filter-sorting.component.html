@@ -1,0 +1,54 @@
+<div class="search-criteria">
+  <!-- Filter Criterias -->
+  <div class="category-section">
+    <div class="dropdown">
+      <button class="dropbtn">{{ productConstant.CATEGORY }}</button>
+      <div class="dropdown-content">
+        <ng-container *ngFor="let category of categories">
+          <a
+            [ngClass]="{
+              'applied-criteria':
+                this.selectedCategory?.categoryName === category?.categoryName
+            }"
+            (click)="onCategroyClick(category)"
+            >{{ category?.categoryName }}</a
+          >
+        </ng-container>
+      </div>
+    </div>
+    <label class="p-1 color-black">
+      <b>{{ productConstant.CATEGORIZED_BY }}</b>
+      {{ this.selectedCategory?.categoryName }}
+    </label>
+  </div>
+  <!-- Sorting Criterias -->
+  <div class="category-section">
+    <div class="dropdown">
+      <button class="dropbtn">{{ productConstant.SORTING }}</button>
+      <div class="dropdown-content">
+        <ng-container *ngFor="let sortItem of sortingArray">
+          <a
+            [ngClass]="{
+              'applied-criteria': this.appliedSorting === sortItem?.key
+            }"
+            (click)="onSorting(sortItem)"
+            >{{ sortItem?.val }}</a
+          >
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <form class="color-black">
+    <input
+      type="search"
+      id="searchFilter"
+      #searchFilter
+      name="searchText"
+      placeholder="Search Any Product"
+      autocomplete="off"
+      [(ngModel)]="searchText"
+      (input)="onSearchInput(searchFilter.value)"
+    />
+    <button type="submit">Search</button>
+  </form>
+</div>
