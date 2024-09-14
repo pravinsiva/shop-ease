@@ -94,7 +94,8 @@ export const produts: Array<IProducts> = [
         prodDesc: 'Expansion 2TB External HDD - USB 3.0 for Windows and Mac with 3 yr Data Recovery Services, Portable Hard Drive (STKM2000400)',
         categoryID: 1,
         displayedImage: ''
-    },
+    }
+    
 ];
 
 // Category types list
