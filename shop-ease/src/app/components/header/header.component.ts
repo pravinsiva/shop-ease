@@ -10,15 +10,13 @@ import { Store } from '@ngrx/store';
   standalone: true,
   imports: [AppRoutingModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   headerConstant = shopEaseConstants;
   currentNav: any = 'Home';
   cartCount$: Observable<any> = new Observable();
-  constructor(
-    private store: Store<any>
-  ) {
+  constructor(private store: Store<any>) {
     // Register a callback to be invoked the next time the application finishes rendering.
     afterNextRender(() => {
       this.onResize();
@@ -26,8 +24,8 @@ export class HeaderComponent {
       window.onresize = () => {
         this.onResize();
       };
-    })
-    this.cartCount$ = this.store.select(('prodCount'));
+    });
+    this.cartCount$ = this.store.select('prodCount');
   }
 
   // Switch between responsive layouts on resize
@@ -35,22 +33,22 @@ export class HeaderComponent {
     this.toggleNavItems();
   }
 
-// For toggling Mobile screen hamburger menu and show/hide navigation menu items
+  // For toggling Mobile screen hamburger menu and show/hide navigation menu items
   openMenu() {
-    const navIcon: any = document?.getElementById("hamIcon");
-    navIcon.classList.toggle("change");
-    const navItems: any = document?.getElementById("navItems");
+    const navIcon: any = document?.getElementById('hamIcon');
+    navIcon.classList.toggle('change');
+    const navItems: any = document?.getElementById('navItems');
     if (navIcon?.classList?.contains('change')) {
-      navItems.style.display = "flex";
+      navItems.style.display = 'flex';
     } else {
       navItems.style.display = 'none';
     }
   }
   // show/hide navigation menu items based on screen size
   private toggleNavItems() {
-    const navItems: any = document?.getElementById("navItems");
+    const navItems: any = document?.getElementById('navItems');
     if (window.innerWidth <= 600) {
-      navItems.style.display = "none";
+      navItems.style.display = 'none';
     } else {
       navItems.style.display = 'flex';
     }
