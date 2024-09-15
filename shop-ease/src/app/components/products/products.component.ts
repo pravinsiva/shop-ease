@@ -137,9 +137,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.currentSortedOrder = sortItem;
     this.filteredProductList?.sort((a: IProducts, b: IProducts) => {
       if (sortItem?.key === 'asc') {
-        return Number(a?.price) - Number(b?.price);
+        return (
+          Number(a?.price - a?.price * a?.offer) -
+          Number(b?.price - b?.price * b?.offer)
+        );
       } else {
-        return Number(b?.price) - Number(a?.price);
+        return (
+          Number(b?.price - b?.price * b?.offer) -
+          Number(a?.price - a?.price * a?.offer)
+        );
       }
     });
   }
